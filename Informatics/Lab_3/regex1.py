@@ -5,15 +5,12 @@ import random
 
 ISU = int(input())
 
-
 def printing_smile(isu):
     eyes = [':', ';', 'X', '8', '=']
     nose = ['-', '<', "-{", "<{"]
     mouth = ['(', ')', 'O', '|', '\\\\', '/', 'P']
-    if isu % 7 == 4:
-        return (eyes[isu % 5] + nose[isu % 4] + mouth[isu % 7][0])
     return (eyes[isu % 5] + nose[isu % 4] + mouth[isu % 7])
-print(printing_smile(ISU))
+print(printing_smile(ISU)[:-1])
 
 def test_generator():
     alf = ""
