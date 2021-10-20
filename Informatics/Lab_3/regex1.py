@@ -6,7 +6,7 @@ def test_generator():
     alf = ""
     for _ in range(1000):
         alf += chr(random.randint(32, 126))
-    for i in range (1, random.randint(1,10)):
+    for i in range (1, random.randint(2,10)):
         rand = random.randint(100,900)
         alf = alf[:rand] + ":-P" + alf[rand:]
     return alf
