@@ -2,11 +2,17 @@ package backgroundObject;
 
 public class Earth extends BackgroundObject{
 
-    public Earth(String name){
-        super(name);
+    public Earth(String name, int density){
+        super(name, density);
     }
 
-    public String overgrown(){
-        return " зарос ";
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

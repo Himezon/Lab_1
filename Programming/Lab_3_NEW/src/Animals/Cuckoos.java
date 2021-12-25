@@ -1,15 +1,22 @@
 package Animals;
 
-import backgroundObject.BackgroundObject;
-
 public class Cuckoos extends Animals{
 
     public Cuckoos(String name){
         super(name);
     }
 
-    public void cuckoo(BackgroundObject backgroundObject){
-        System.out.println(this.getName() + " куковали в " + backgroundObject.getName()
-                + " " + backgroundObject.getStatus() + ".");
+    public void cuckoo(){
+        System.out.println(this.getName() + " crowed.");
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

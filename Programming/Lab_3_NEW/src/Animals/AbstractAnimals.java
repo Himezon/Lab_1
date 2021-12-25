@@ -1,19 +1,32 @@
 package Animals;
 
-import backgroundObject.BackgroundObject;
+import backgroundObject.Pine;
 
 public class AbstractAnimals extends Animals{
-
-    public AbstractAnimals(String name, String status){
-        super(name, status);
+    private int thrustCounter;
+    public AbstractAnimals(String name, int count){
+        super(name, count);
+        thrustCounter = 1;
     }
 
-    public void see(){
-        System.out.println("было видно " + this.getStatus() + " " + this.getName() + ".");
+    public int summaryThrust(){
+        return this.thrustCounter * this.getCount();
     }
 
-    public void push(BackgroundObject backgroundObject, BackgroundObject backgroundObject1){
-        System.out.print("Они пытались столкнуть " + backgroundObject.getStatus() + " " + backgroundObject.getName()
-                + " в " + backgroundObject1.getName() + ".");
+    public void move(Pine pine){
+        if (pine.getCount() - this.summaryThrust() < 0){
+            pine.changeStartPosition();
+        }
+        System.out.println(pine.Msg());
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

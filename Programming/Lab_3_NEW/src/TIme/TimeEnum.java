@@ -1,8 +1,8 @@
 package TIme;
 
 public enum TimeEnum {
-    EVENING("вечер"),
-    NIGHT("ночь");
+    EVENING("Evening"),
+    NIGHT("Night");
     private final String name;
     TimeEnum(String name){this.name = name;}
     public String getName(){

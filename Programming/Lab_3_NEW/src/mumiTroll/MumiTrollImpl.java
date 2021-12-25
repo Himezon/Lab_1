@@ -1,40 +1,30 @@
 package mumiTroll;
 
 import backgroundObject.BackgroundObject;
-import backgroundObject.Earth;
+import backgroundObject.Water;
 
-public class MumiTrollImpl implements MumiTroll{
+public class MumiTrollImpl{
     private String name;
-    private ObjectMumiTroll objectMumiTroll;
+    private int density;
 
-    public MumiTrollImpl(String name){
+    public MumiTrollImpl(String name, int density){
         this.name = name;
+        this.density = density;
     }
 
-
-    @Override
-    public void stand(BackgroundObject backgroundObject) {
-        System.out.print(this.name + " твердо стоял на " + backgroundObject.getName() + ", ");
+    public void stand(ObjectMumiTroll objectMumiTroll, BackgroundObject backgroundObject1, BackgroundObject backgroundObject2) {
+        System.out.println( this.name + " standing on the " + backgroundObject1.getName() + ". "
+                + backgroundObject1.hardnessTest(density) + ". "
+                + objectMumiTroll.bury(backgroundObject2) + ". "
+                + backgroundObject2.hardnessTest(density) + ". ");
     }
 
-    @Override
-    public void bury(ObjectMumiTroll objectMumiTroll, BackgroundObject backgroundObject) {
-        System.out.println("зарываясь " + objectMumiTroll.getName() + " в " + backgroundObject.getStatus() + " " + backgroundObject.getName() + ".");
+    public void layDown(ObjectMumiTroll objectMumiTroll, Water water) {
+        System.out.println(this.getName() + " lay down and " + this.thinks(objectMumiTroll, water));
     }
 
-    @Override
-    public void layDown(BackgroundObject backgroundObject, Earth earth, BackgroundObject backgroundObject1) {
-        System.out.println(this.name + " плашмя лежал на " + backgroundObject.getName() + ", которую" + earth.overgrown() + backgroundObject1.getName() + ".");
-    }
-
-    @Override
-    public void dizzy(ObjectMumiTroll objectMumiTroll) {
-        System.out.print(objectMumiTroll.getName() + " все еще кружится, потому что");
-    }
-
-    @Override
-    public void seems() {
-        System.out.print(this.name + " думает, ");
+    public String thinks(ObjectMumiTroll objectMumiTroll, Water water){
+        return "thinks that " + objectMumiTroll.dizzy(water);
     }
 
     public String getName(){
@@ -44,11 +34,6 @@ public class MumiTrollImpl implements MumiTroll{
     @Override
     public int hashCode() {
         return super.hashCode();
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
     }
 
     @Override

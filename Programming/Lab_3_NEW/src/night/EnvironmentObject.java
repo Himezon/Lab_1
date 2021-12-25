@@ -1,10 +1,6 @@
-package backgroundObject;
+package night;
 
-public class Moss extends BackgroundObject{
-
-    public Moss(String name, int density){
-        super(name, density);
-    }
+public class EnvironmentObject {
 
     @Override
     public int hashCode() {

@@ -2,22 +2,31 @@ package backgroundObject;
 
 public abstract class BackgroundObject {
     private String name;
-    private String status;
+    private int count;
 
     public BackgroundObject(String name){
         this.name = name;
     }
 
-    public BackgroundObject(String name, String status){
+    public BackgroundObject(String name, int count){
         this.name = name;
-        this.status = status;
+        this.count = count;
     }
+
 
     public String getName(){
         return this.name;
     }
 
-    public String getStatus(){
-        return this.status;
+    public int getCount(){
+        return count;
+    }
+
+    public String hardnessTest(int density){
+        if (count < density){
+            return name + " is soft";
+        } else {
+            return name + " is solid";
+        }
     }
 }

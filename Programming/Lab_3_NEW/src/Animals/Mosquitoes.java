@@ -1,22 +1,33 @@
 package Animals;
 
 import backgroundObject.BackgroundObject;
-import mumiTroll.MumiTrollImpl;
 import mumiTroll.ObjectMumiTroll;
 
 public class Mosquitoes extends Animals{
 
-    public Mosquitoes(String name, String status){
-        super(name, status);
+    private int attack;
+
+    public Mosquitoes(String name){
+        super(name);
+        attack = 1;
     }
 
-    public void curled(BackgroundObject backgroundObject){
-        System.out.println("Под " + backgroundObject.getStatus() + " " + backgroundObject.getName() +
-                " вились " + this.getStatus() + " " + this.getName() + ".");
+    public void damage(ObjectMumiTroll objectMumiTroll){
+        objectMumiTroll.health = objectMumiTroll.getHealth() - attack;
     }
 
-    public void notBite(ObjectMumiTroll objectMumiTroll, MumiTrollImpl mumiTroll){
-        System.out.println("К счастью, " + this.getName() + " не может прокусть " + objectMumiTroll.getName()
-                + " " + mumiTroll.getName() + ".");
+    public void flew(BackgroundObject backgroundObject){
+        System.out.println(this.getName() + " flew under the " + backgroundObject.getName());
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
 }

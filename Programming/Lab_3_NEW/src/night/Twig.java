@@ -1,10 +1,6 @@
-package backgroundObject;
+package night;
 
-public class Moss extends BackgroundObject{
-
-    public Moss(String name, int density){
-        super(name, density);
-    }
+public class Twig extends Fuel{
 
     @Override
     public int hashCode() {
@@ -15,4 +11,5 @@ public class Moss extends BackgroundObject{
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
+
 }

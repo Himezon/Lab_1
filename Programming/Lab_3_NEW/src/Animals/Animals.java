@@ -2,22 +2,22 @@ package Animals;
 
 public abstract class Animals {
     private String name;
-    private String status;
+    private int count;
 
     public Animals(String name){
         this.name = name;
     }
 
-    public Animals(String name, String status){
+    public Animals(String name, int count){
         this.name = name;
-        this.status = status;
+        this.count = count;
     }
 
     public String getName(){
         return this.name;
     }
 
-    public String getStatus(){
-        return this.status;
+    public int getCount(){
+        return this.count;
     }
 }

@@ -7,6 +7,16 @@ public class Twinkle extends BackgroundObject{
     }
 
     public void fair(){
-        System.out.println("вспыхнул " + this.getName() + ".");
+        System.out.print("вспыхнул " + this.getName() + ".");
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }
