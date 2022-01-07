@@ -20,7 +20,15 @@ public class AbstractAnimals extends Animals {
         if (pine.getCount() - this.summaryThrust() < 0) {
             pine.changeStartPosition();
         }
-        System.out.println(pine.Msg());
+        System.out.println(pine.Msg(this.getCount()));
+    }
+
+    public void visibility() {
+        if (this.getCount() < 1) {
+            System.out.println("There were no living creatures around");
+        } else {
+            System.out.println("Many tiny inhabitants of the forest could be seen around");
+        }
     }
 
     @Override

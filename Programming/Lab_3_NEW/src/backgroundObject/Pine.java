@@ -1,5 +1,7 @@
 package backgroundObject;
 
+import Animals.AbstractAnimals;
+
 import java.util.Objects;
 
 public class Pine extends BackgroundObject {
@@ -13,11 +15,13 @@ public class Pine extends BackgroundObject {
        return startPosition = !startPosition;
     }
 
-    public String Msg() {
-        if (!startPosition) {
-            return "The little inhabitants of the forest moved the pine.";
+    public String Msg(int animalsCount) {
+        if (animalsCount < 1) {
+            return "The pine is lying quietly in place";
+        } else if (!startPosition) {
+            return "They pushed the pine into the fire.";
         } else {
-            return "The little inhabitants of the forest did not moved the pine.";
+            return "They tried to push the pine into the fire.";
         }
     }
 

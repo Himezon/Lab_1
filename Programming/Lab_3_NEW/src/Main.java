@@ -62,6 +62,8 @@ public class Main {
         fire.addFuel(new Twig());
         fire.startBurning();
 
+        abstractAnimals.visibility();
+
         abstractAnimals.move(pine);
     }
 }
