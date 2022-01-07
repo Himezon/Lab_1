@@ -1,6 +1,8 @@
 package backgroundObject;
 
-public class Twinkle extends BackgroundObject{
+import java.util.Objects;
+
+public class Twinkle extends BackgroundObject {
 
     public Twinkle(String name){
         super(name);
@@ -12,11 +14,16 @@ public class Twinkle extends BackgroundObject{
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(getName());
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (obj == null || obj.getClass() != this.getClass())
+            return false;
+        if (this == obj)
+            return true;
+        Twinkle other = (Twinkle) obj;
+        return Objects.equals(getName(), other.getName());
     }
 }

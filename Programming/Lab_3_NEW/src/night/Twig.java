@@ -1,6 +1,6 @@
 package night;
 
-public class Twig extends Fuel{
+public class Twig extends Fuel {
 
     @Override
     public int hashCode() {

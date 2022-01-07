@@ -1,6 +1,6 @@
 package night;
 
-public class Source implements Location{
+public class Source implements Location {
     private boolean environmentVisible;
 
     public void notifyAboutFire(Bonfire fire) {

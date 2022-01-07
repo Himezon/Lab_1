@@ -1,6 +1,10 @@
 package backgroundObject;
 
-public class Earth extends BackgroundObject{
+import mumiTroll.MumiTrollImpl;
+
+import java.util.Objects;
+
+public class Earth extends BackgroundObject {
 
     public Earth(String name, int density){
         super(name, density);
@@ -8,11 +12,16 @@ public class Earth extends BackgroundObject{
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(getName());
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (obj == null || obj.getClass() != this.getClass())
+            return false;
+        if (this == obj)
+            return true;
+        Earth other = (Earth) obj;
+        return Objects.equals(getName(), other.getName());
     }
 }

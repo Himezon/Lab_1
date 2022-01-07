@@ -1,6 +1,10 @@
 package Animals;
 
-public class Cuckoos extends Animals{
+import backgroundObject.Earth;
+
+import java.util.Objects;
+
+public class Cuckoos extends Animals {
 
     public Cuckoos(String name){
         super(name);
@@ -12,11 +16,16 @@ public class Cuckoos extends Animals{
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(getName());
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (obj == null || obj.getClass() != this.getClass())
+            return false;
+        if (this == obj)
+            return true;
+        Cuckoos other = (Cuckoos) obj;
+        return Objects.equals(getName(), other.getName());
     }
 }

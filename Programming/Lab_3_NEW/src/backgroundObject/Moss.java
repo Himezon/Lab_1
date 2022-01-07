@@ -1,6 +1,8 @@
 package backgroundObject;
 
-public class Moss extends BackgroundObject{
+import java.util.Objects;
+
+public class Moss extends BackgroundObject {
 
     public Moss(String name, int density){
         super(name, density);
@@ -8,11 +10,16 @@ public class Moss extends BackgroundObject{
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(getName());
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (obj == null || obj.getClass() != this.getClass())
+            return false;
+        if (this == obj)
+            return true;
+        Moss other = (Moss) obj;
+        return Objects.equals(getName(), other.getName());
     }
 }

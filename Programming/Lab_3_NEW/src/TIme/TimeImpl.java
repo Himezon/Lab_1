@@ -1,6 +1,8 @@
 package TIme;
 
-public class TimeImpl implements Time{
+import java.util.Objects;
+
+public class TimeImpl implements Time {
     private String season;
 
     public TimeImpl(String season){
@@ -12,8 +14,8 @@ public class TimeImpl implements Time{
         System.out.println(time.getName() + " has come.");
     }
 
-    public  String getMsg(String msg){
-        switch (msg){
+    public  String getMsg(String msg) {
+        switch (msg) {
             case "summer":
                 return "wasn't dark";
 
@@ -35,11 +37,16 @@ public class TimeImpl implements Time{
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(season);
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (obj == null || obj.getClass() != this.getClass())
+            return false;
+        if (this == obj)
+            return true;
+        TimeImpl other = (TimeImpl) obj;
+        return Objects.equals(season, other.season);
     }
 }

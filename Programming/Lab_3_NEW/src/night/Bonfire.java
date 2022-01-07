@@ -1,5 +1,9 @@
 package night;
 
+import backgroundObject.Earth;
+
+import java.util.Objects;
+
 public class Bonfire {
     private Fuel[] fuels;
     private int fuelCount;
@@ -40,11 +44,16 @@ public class Bonfire {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(fuels);
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (obj == null || obj.getClass() != this.getClass())
+            return false;
+        if (this == obj)
+            return true;
+        Bonfire other = (Bonfire) obj;
+        return Objects.equals(fuels, other.fuels);
     }
 }
