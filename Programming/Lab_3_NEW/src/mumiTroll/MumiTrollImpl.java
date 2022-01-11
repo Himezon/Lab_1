@@ -38,16 +38,21 @@ public class MumiTrollImpl {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(name, density);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null || obj.getClass() != this.getClass())
-            return false;
-        if (this == obj)
-            return true;
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        
         MumiTrollImpl other = (MumiTrollImpl) obj;
-        return Objects.equals(name, other.name);
+        return Objects.equals(name, other.name) && density == other.density;
+    }
+    
+    @Override
+    public String toString() {
+        return "Mumi Troll Impl name: '" + this.name + "'; current density: " + this.density + "; ";
     }
 }
