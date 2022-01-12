@@ -1,14 +1,14 @@
 package night;
 
-public class EnvironmentObject {
+public class EnvironmentObject{
 
     @Override
-    public int hashCode() {
+    public int hashCode(){
         return super.hashCode();
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj){
         return super.equals(obj);
     }
 }

@@ -4,37 +4,37 @@ import animals.AbstractAnimals;
 
 import java.util.Objects;
 
-public class Bonfire {
+public class Bonfire{
     private Fuel[] fuels;
     private int fuelCount;
     private Location position;
 
-    public Bonfire(Location position, int size) {
+    public Bonfire(Location position, int size){
         this.fuels = new Fuel[size];
         this.position = position;
     }
 
-    public void startBurning(AbstractAnimals animals) {
+    public void startBurning(AbstractAnimals animals){
         Fuel next = findNextNotBurntFuel();
         next.burn();
         position.notifyAboutFire(this);
         animals.setVisible(true);
     }
 
-    public void burn() {
+    public void burn(){
         findNextNotBurntFuel().burn();
     }
 
-    public void addFuel(Fuel fuel) {
+    public void addFuel(Fuel fuel){
         this.fuels[fuelCount] = fuel;
         fuelCount++;
     }
 
-    public boolean hasFuel() {
+    public boolean hasFuel(){
         return true;
     }
 
-    private Fuel findNextNotBurntFuel() {
+    private Fuel findNextNotBurntFuel(){
         for (int i = 0; i < fuelCount; ++i) {
             if (!fuels[i].isBurnt()) {
                 return fuels[i];
@@ -44,12 +44,12 @@ public class Bonfire {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(){
         return Objects.hash(fuels);
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj){
         if (obj == null || obj.getClass() != this.getClass())
             return false;
         if (this == obj)

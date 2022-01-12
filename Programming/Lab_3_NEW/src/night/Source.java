@@ -3,11 +3,11 @@ package night;
 public class Source implements Location{
     private boolean environmentVisible;
 
-    public void notifyAboutFire(Bonfire fire) {
+    public void notifyAboutFire(Bonfire fire){
         environmentVisible = true;
     }
 
-    public EnvironmentObject[] getVisibleObjects() {
+    public EnvironmentObject[] getVisibleObjects(){
         if (!environmentVisible) {
             return new EnvironmentObject[0];
         }
@@ -15,12 +15,12 @@ public class Source implements Location{
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(){
         return super.hashCode();
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj){
         return super.equals(obj);
     }
 }

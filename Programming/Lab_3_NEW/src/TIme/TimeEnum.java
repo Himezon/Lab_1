@@ -1,6 +1,6 @@
 package tIme;
 
-public enum TimeEnum {
+public enum TimeEnum{
     EVENING("Evening"),
     NIGHT("Night");
     private final String name;

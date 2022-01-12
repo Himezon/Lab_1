@@ -5,7 +5,7 @@ import backgroundObject.Water;
 
 import java.util.Objects;
 
-public class ObjectMumiTroll {
+public class ObjectMumiTroll{
 
     private String name;
     public int health;
@@ -64,12 +64,12 @@ public class ObjectMumiTroll {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(){
         return Objects.hash(name, skinThickness, health);
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj){
         if (obj == null || obj.getClass() != this.getClass())
             return false;
         if (this == obj)

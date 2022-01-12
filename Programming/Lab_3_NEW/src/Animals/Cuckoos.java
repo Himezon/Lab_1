@@ -13,12 +13,12 @@ public class Cuckoos extends Animals{
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(){
         return Objects.hash(getName());
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj){
         if (obj == null || obj.getClass() != this.getClass())
             return false;
         if (this == obj)

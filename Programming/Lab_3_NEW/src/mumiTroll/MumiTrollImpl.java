@@ -16,14 +16,14 @@ public class MumiTrollImpl{
 
 
 
-    public void stand(ObjectMumiTroll objectMumiTroll, BackgroundObject backgroundObject1, BackgroundObject backgroundObject2) {
+    public void stand(ObjectMumiTroll objectMumiTroll, BackgroundObject backgroundObject1, BackgroundObject backgroundObject2){
         System.out.println( this.name + " standing on the " + backgroundObject1.getName() + ". "
         + backgroundObject1.hardnessTest(density) + ". "
         + objectMumiTroll.bury(backgroundObject2) + ". "
         + backgroundObject2.hardnessTest(density) + ". ");
     }
 
-    public void layDown(ObjectMumiTroll objectMumiTroll, Water water) {
+    public void layDown(ObjectMumiTroll objectMumiTroll, Water water){
         System.out.println(this.getName() + " lay down and " + this.thinks(objectMumiTroll, water));
     }
 
@@ -41,7 +41,7 @@ public class MumiTrollImpl{
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj){
         if (obj == null || obj.getClass() != this.getClass())
             return false;
         if (this == obj)

@@ -43,12 +43,12 @@ public class AbstractAnimals extends Animals{
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(){
         return Objects.hash(getName(), getCount(), thrustCounter, visible);
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj){
         if (obj == null || obj.getClass() != this.getClass())
             return false;
         if (this == obj)

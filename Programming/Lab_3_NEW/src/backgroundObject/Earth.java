@@ -11,7 +11,7 @@ public class Earth extends BackgroundObject{
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(){
         return Objects.hash(getName(), getCount());
     }
 

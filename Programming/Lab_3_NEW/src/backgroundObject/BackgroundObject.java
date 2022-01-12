@@ -1,6 +1,6 @@
 package backgroundObject;
 
-public abstract class BackgroundObject {
+public abstract class BackgroundObject{
     private String name;
     private int count;
 

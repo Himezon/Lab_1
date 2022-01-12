@@ -36,12 +36,12 @@ public class TimeImpl implements Time{
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(){
         return Objects.hash(season);
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj){
         if (obj == null || obj.getClass() != this.getClass())
             return false;
         if (this == obj)
