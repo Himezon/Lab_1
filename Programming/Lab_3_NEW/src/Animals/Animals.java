@@ -1,4 +1,4 @@
-package Animals;
+package animals;
 
 public abstract class Animals {
     private String name;
@@ -8,7 +8,7 @@ public abstract class Animals {
         this.name = name;
     }
 
-    public Animals(String name, int count) {
+    public Animals(String name, int count){
         this.name = name;
         this.count = count;
     }

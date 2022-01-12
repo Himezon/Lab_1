@@ -1,4 +1,4 @@
-package TIme;
+package tIme;
 
 public interface Time {
     void changeTime(TimeEnum time);

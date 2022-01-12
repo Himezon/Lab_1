@@ -2,7 +2,7 @@ package backgroundObject;
 
 import java.util.Objects;
 
-public class Fir extends BackgroundObject {
+public class Fir extends BackgroundObject{
 
     public Fir(String name){
         super(name);

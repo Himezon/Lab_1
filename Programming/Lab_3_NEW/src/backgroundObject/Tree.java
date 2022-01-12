@@ -2,13 +2,13 @@ package backgroundObject;
 
 import java.util.Objects;
 
-public class Tree extends BackgroundObject {
+public class Tree extends BackgroundObject{
     public Tree(String name, int count){
         super(name, count);
     }
 
-    public void grow() {
-        if (this.getCount() < 100) {
+    public void grow(){
+        if (this.getCount() < 100){
             System.out.println(this.getName() + " garden grows.");
         } else {
             System.out.println(this.getName() + " forest grows.");
@@ -17,7 +17,7 @@ public class Tree extends BackgroundObject {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName());
+        return Objects.hash(getName(), getCount());
     }
 
     @Override
@@ -27,6 +27,6 @@ public class Tree extends BackgroundObject {
         if (this == obj)
             return true;
         Tree other = (Tree) obj;
-        return Objects.equals(getName(), other.getName());
+        return Objects.equals(getName(), other.getName()) && getCount() == other.getCount();
     }
 }

@@ -1,16 +1,16 @@
 package backgroundObject;
 
-import TIme.Time;
+import tIme.Time;
 
 import java.util.Objects;
 
-public class Sun extends BackgroundObject {
+public class Sun extends BackgroundObject{
 
     public Sun(String name){
         super(name);
     }
 
-    public void down(Time time) {
+    public void down(Time time){
         System.out.println(this.getName() + " went down bot it " + time.getMsg(time.getSeason()) + ".");
     }
 

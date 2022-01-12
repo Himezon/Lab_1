@@ -1,10 +1,8 @@
-package Animals;
-
-import backgroundObject.Earth;
+package animals;
 
 import java.util.Objects;
 
-public class Cuckoos extends Animals {
+public class Cuckoos extends Animals{
 
     public Cuckoos(String name){
         super(name);

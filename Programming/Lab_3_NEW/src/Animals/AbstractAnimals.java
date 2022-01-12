@@ -1,39 +1,50 @@
-package Animals;
+package animals;
 
-import backgroundObject.Earth;
 import backgroundObject.Pine;
 
 import java.util.Objects;
 
-public class AbstractAnimals extends Animals {
+public class AbstractAnimals extends Animals{
+
     private int thrustCounter;
-    public AbstractAnimals(String name, int count) {
+    private boolean visible;
+
+    public AbstractAnimals(String name, int count){
         super(name, count);
         thrustCounter = 1;
+        visible = false;
     }
 
     public int summaryThrust(){
         return this.thrustCounter * this.getCount();
     }
 
-    public void move(Pine pine) {
-        if (pine.getCount() - this.summaryThrust() < 0) {
+    public void move(Pine pine){
+        if (pine.getCount() - this.summaryThrust() < 0){
             pine.changeStartPosition();
         }
-        System.out.println(pine.Msg(this.getCount()));
+        System.out.println(pine.Msg());
     }
 
-    public void visibility() {
-        if (this.getCount() < 1) {
-            System.out.println("There were no living creatures around");
+    public void  setVisible(boolean visible){
+        this.visible = visible;
+    }
+
+    public boolean getVisible(){
+        return visible;
+    }
+
+    public String chekVisible(){
+        if (this.getVisible()){
+            return "Beasts can be seen around the fire";
         } else {
-            System.out.println("Many tiny inhabitants of the forest could be seen around");
+            return "Beasts are not visible around the fire";
         }
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName());
+        return Objects.hash(getName(), getCount(), thrustCounter, visible);
     }
 
     @Override
@@ -43,6 +54,7 @@ public class AbstractAnimals extends Animals {
         if (this == obj)
             return true;
         AbstractAnimals other = (AbstractAnimals) obj;
-        return Objects.equals(getName(), other.getName());
+        return Objects.equals(getName(), other.getName()) && getCount() == other.getCount() &&
+                thrustCounter == other.thrustCounter && visible == other.visible;
     }
 }

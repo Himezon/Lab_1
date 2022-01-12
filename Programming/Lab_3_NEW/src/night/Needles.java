@@ -1,6 +1,6 @@
 package night;
 
-public class Needles extends Fuel {
+public class Needles extends Fuel{
 
     @Override
     public int hashCode() {

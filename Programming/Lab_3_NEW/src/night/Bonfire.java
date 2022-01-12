@@ -1,6 +1,6 @@
 package night;
 
-import backgroundObject.Earth;
+import animals.AbstractAnimals;
 
 import java.util.Objects;
 
@@ -14,10 +14,11 @@ public class Bonfire {
         this.position = position;
     }
 
-    public void startBurning() {
+    public void startBurning(AbstractAnimals animals) {
         Fuel next = findNextNotBurntFuel();
         next.burn();
         position.notifyAboutFire(this);
+        animals.setVisible(true);
     }
 
     public void burn() {

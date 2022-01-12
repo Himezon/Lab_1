@@ -2,7 +2,7 @@ package backgroundObject;
 
 import java.util.Objects;
 
-public class Moss extends BackgroundObject {
+public class Moss extends BackgroundObject{
 
     public Moss(String name, int density){
         super(name, density);
@@ -10,7 +10,7 @@ public class Moss extends BackgroundObject {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName());
+        return Objects.hash(getName(), getCount());
     }
 
     @Override
@@ -20,6 +20,6 @@ public class Moss extends BackgroundObject {
         if (this == obj)
             return true;
         Moss other = (Moss) obj;
-        return Objects.equals(getName(), other.getName());
+        return Objects.equals(getName(), other.getName()) && getCount() == other.getCount();
     }
 }

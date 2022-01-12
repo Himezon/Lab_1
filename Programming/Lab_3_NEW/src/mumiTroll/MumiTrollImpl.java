@@ -1,16 +1,15 @@
 package mumiTroll;
 
-import TIme.TimeImpl;
 import backgroundObject.BackgroundObject;
 import backgroundObject.Water;
 
 import java.util.Objects;
 
-public class MumiTrollImpl {
+public class MumiTrollImpl{
     private String name;
     private int density;
 
-    public MumiTrollImpl(String name, int density) {
+    public MumiTrollImpl(String name, int density){
         this.name = name;
         this.density = density;
     }
@@ -28,7 +27,7 @@ public class MumiTrollImpl {
         System.out.println(this.getName() + " lay down and " + this.thinks(objectMumiTroll, water));
     }
 
-    public String thinks(ObjectMumiTroll objectMumiTroll, Water water) {
+    public String thinks(ObjectMumiTroll objectMumiTroll, Water water){
         return "thinks that " + objectMumiTroll.dizzy(water);
     }
 
@@ -38,7 +37,7 @@ public class MumiTrollImpl {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(name, density);
     }
 
     @Override
@@ -48,6 +47,6 @@ public class MumiTrollImpl {
         if (this == obj)
             return true;
         MumiTrollImpl other = (MumiTrollImpl) obj;
-        return Objects.equals(name, other.name);
+        return Objects.equals(name, other.name) && density == other.density;
     }
 }

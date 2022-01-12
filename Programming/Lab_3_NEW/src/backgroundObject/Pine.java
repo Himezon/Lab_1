@@ -1,12 +1,10 @@
 package backgroundObject;
 
-import Animals.AbstractAnimals;
-
 import java.util.Objects;
 
-public class Pine extends BackgroundObject {
+public class Pine extends BackgroundObject{
     private boolean startPosition;
-    public Pine(String name, int count) {
+    public Pine(String name, int count){
         super(name, count);
         startPosition = true;
     }
@@ -15,19 +13,17 @@ public class Pine extends BackgroundObject {
        return startPosition = !startPosition;
     }
 
-    public String Msg(int animalsCount) {
-        if (animalsCount < 1) {
-            return "The pine is lying quietly in place";
-        } else if (!startPosition) {
-            return "They pushed the pine into the fire.";
+    public String Msg(){
+        if (!startPosition){
+            return "The little inhabitants of the forest moved the pine.";
         } else {
-            return "They tried to push the pine into the fire.";
+            return "The little inhabitants of the forest did not moved the pine.";
         }
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName());
+        return Objects.hash(getName(), getCount(), startPosition);
     }
 
     @Override
@@ -37,6 +33,6 @@ public class Pine extends BackgroundObject {
         if (this == obj)
             return true;
         Pine other = (Pine) obj;
-        return Objects.equals(getName(), other.getName());
+        return Objects.equals(getName(), other.getName()) && getCount() == other.getCount() && startPosition == other.startPosition;
     }
 }

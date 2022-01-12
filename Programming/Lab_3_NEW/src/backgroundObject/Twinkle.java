@@ -2,7 +2,7 @@ package backgroundObject;
 
 import java.util.Objects;
 
-public class Twinkle extends BackgroundObject {
+public class Twinkle extends BackgroundObject{
 
     public Twinkle(String name){
         super(name);

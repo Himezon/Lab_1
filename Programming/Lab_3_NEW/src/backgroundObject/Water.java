@@ -2,14 +2,14 @@ package backgroundObject;
 
 import java.util.Objects;
 
-public class Water extends BackgroundObject {
+public class Water extends BackgroundObject{
 
     public Water(String name, int count){
         super(name, count);
     }
 
-    public boolean speedMeter() {
-        if ( this.getCount() > 20) {
+    public boolean speedMeter(){
+        if ( this.getCount() > 20){
             return true;
         } else {
             return false;
@@ -18,7 +18,7 @@ public class Water extends BackgroundObject {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName());
+        return Objects.hash(getName(), getCount());
     }
 
     @Override
@@ -28,6 +28,6 @@ public class Water extends BackgroundObject {
         if (this == obj)
             return true;
         Water other = (Water) obj;
-        return Objects.equals(getName(), other.getName());
+        return Objects.equals(getName(), other.getName()) && getCount() == other.getCount();
     }
 }

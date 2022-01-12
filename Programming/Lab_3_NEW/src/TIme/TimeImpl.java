@@ -1,8 +1,8 @@
-package TIme;
+package tIme;
 
 import java.util.Objects;
 
-public class TimeImpl implements Time {
+public class TimeImpl implements Time{
     private String season;
 
     public TimeImpl(String season){
@@ -14,8 +14,8 @@ public class TimeImpl implements Time {
         System.out.println(time.getName() + " has come.");
     }
 
-    public  String getMsg(String msg) {
-        switch (msg) {
+    public  String getMsg(String msg){
+        switch (msg){
             case "summer":
                 return "wasn't dark";
 

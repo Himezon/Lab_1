@@ -1,25 +1,26 @@
-package Animals;
+package animals;
 
 import backgroundObject.BackgroundObject;
-import backgroundObject.Earth;
 import mumiTroll.ObjectMumiTroll;
 
 import java.util.Objects;
 
-public class Mosquitoes extends Animals {
+public class Mosquitoes extends Animals{
 
     private int attack;
 
-    public Mosquitoes(String name) {
+    public Mosquitoes(String name){
         super(name);
-        attack = 0;
+        attack = 1;
     }
 
-    public void damage(ObjectMumiTroll objectMumiTroll) {
-        objectMumiTroll.setHealth(objectMumiTroll.getHealth() - getAttack());
+    public void damage(ObjectMumiTroll objectMumiTroll){
+        if (this.getAttack() >= objectMumiTroll.getHealth()){
+            objectMumiTroll.setHealth(objectMumiTroll.getHealth() - this.getAttack());
+        }
     }
 
-    public void flew(BackgroundObject backgroundObject) {
+    public void flew(BackgroundObject backgroundObject){
         System.out.println(this.getName() + " flew under the " + backgroundObject.getName());
     }
 
@@ -29,7 +30,7 @@ public class Mosquitoes extends Animals {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName());
+        return Objects.hash(getName(), attack);
     }
 
     @Override
@@ -39,7 +40,7 @@ public class Mosquitoes extends Animals {
         if (this == obj)
             return true;
         Mosquitoes other = (Mosquitoes) obj;
-        return Objects.equals(getName(), other.getName());
+        return Objects.equals(getName(), other.getName()) && attack == other.attack;
     }
 
 }
