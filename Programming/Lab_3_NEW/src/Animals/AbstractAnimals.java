@@ -34,11 +34,11 @@ public class AbstractAnimals extends Animals{
         return visible;
     }
 
-    public String chekVisible(){
+    public void chekVisible(){
         if (this.getVisible()){
-            return "Beasts can be seen around the fire";
+            System.out.println("Beasts can be seen around the fire");
         } else {
-            return "Beasts are not visible around the fire";
+            System.out.println("Beasts are not visible around the fire");
         }
     }
 
