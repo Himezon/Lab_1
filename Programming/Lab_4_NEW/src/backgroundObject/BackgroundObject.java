@@ -1,12 +1,15 @@
 package backgroundObject;
 
+import misc.Placeable;
 import misc.Visible;
+import misc.Moveable;
 
-public abstract class BackgroundObject implements Visible {
+public abstract class BackgroundObject implements Visible, Placeable {
     protected final String name;
     protected final String position;
     protected int count;
     protected boolean isVisible;
+    protected Moveable moveable;
 
     public BackgroundObject(String name, int count, String position) {
         this.name = name;
@@ -41,6 +44,16 @@ public abstract class BackgroundObject implements Visible {
             System.out.println(this.name + " became invisible.");
         }
         return false;
+    }
+
+    @Override
+    public void moveInside(Moveable moveable) {
+        this.moveable = moveable;
+    }
+
+    @Override
+    public void moveOutside() {
+        this.moveable = null;
     }
 
     public abstract boolean getVisibility();

@@ -30,11 +30,11 @@ public class Main {
         };
 
         Tree tree = new Tree("Coniferous", ground);
+        Tree tree1 = new Tree("another tree", ground);
         Pine pine = new Pine("Pine", 70, "on tree");
         TimeInterface time = new TimeImpl("summer");
 
         Mosquitoes[] mosquitoes = new Mosquitoes[4];
-
 
         Cuckoos cuckoos = new Cuckoos("Cuckoos");
         AbstractAnimals abstractAnimals = new AbstractAnimals("Abstract animals");
@@ -42,12 +42,12 @@ public class Main {
         Water water = new Water("Water");
         Sun sun = new Sun("Sun");
 
-        mumiTroll.move("one tree", "another tree");
-        frekenSnork.move("one tree", "another tree");
+        mumiTroll.move(tree1);
+        frekenSnork.move(tree1);
         time.changeTime(TimeEnum.NIGHT);
         ground.grass.grow();
-        mumiTroll.seeObject(ground);
-        frekenSnork.seeObject(ground);
+        mumiTroll.seeObject(ground.grass);
+        frekenSnork.seeObject(ground.grass);
 
         mumiTroll.stand(ground, Feeling.NICE);
         mumiTroll.bury(ground);

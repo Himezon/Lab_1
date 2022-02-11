@@ -2,17 +2,16 @@ package mumiTroll;
 
 import backgroundObject.BackgroundObject;
 import backgroundObject.Ground;
-import misc.BuryException;
-import misc.Feeling;
-import misc.SkinThicknessEnum;
+import misc.*;
 
 import java.util.Objects;
 
-public class MumiTroll {
+public class MumiTroll implements Moveable {
 
     protected int health = 4;
     private final String name;
     private SkinThicknessEnum skinThickness;
+    protected Placeable place;
 
 
     public MumiTroll(String name, SkinThicknessEnum skinThickness) {
@@ -40,6 +39,16 @@ public class MumiTroll {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public void move(BackgroundObject place) {
+        if (this.place != null) {
+            this.place.moveOutside();
+        }
+        this.place = place;
+        place.moveInside(this);
+        System.out.printf("Объект %s переместился в область %s %n", this.getClass().getSimpleName(), place.getName());
     }
 
     public int getHealth() {
@@ -98,9 +107,9 @@ public class MumiTroll {
         System.out.println(name + " sees a " + object.getName() + ".");
     }
 
-    public void move(String currentPosition, String destination) {
-        System.out.println(name + " moved from " + currentPosition + " to " + destination + ".");
-    };
+//    public void move(String currentPosition, String destination) {
+//        System.out.println(name + " moved from " + currentPosition + " to " + destination + ".");
+//    };
 
     @Override
     public int hashCode() {
