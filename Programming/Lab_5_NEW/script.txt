@@ -1,0 +1,5 @@
+help
+info
+execute_script script.txt
+execute_script script1.txt
+help
