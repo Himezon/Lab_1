@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="Web programming lab #1" name="description">
+    <meta content="Gorinov Daniil Andreevich" name="author">
+    <title>Web programming - lab #1</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+<script src="client.js"></script>
+
+<header>
+    <span id="author">
+        Gorinov Daniil Andreevich (338960), P32151
+    </span>
+</header>
+
+<table class="page_table">
+    <tr>
+        <td>
+            <img src="images/taskWeb.png" class="page_table" alt="" border="2">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p class="page_table" id="enter-text">Enter values:</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="vars_table">
+                <tr>
+                    <td colspan="2">
+                        <p class="variable">X=
+                            <select size="9" name="select" id="x">
+                                <option value="-2" label="-2">-2</option>
+                                <option value="-1.5" label="-1.5">-1.5</option>
+                                <option value="-1" label="-1">-1</option>
+                                <option value="-0.5" label="-0.5">-0.5</option>
+                                <option selected value="0" label="0">0</option>
+                                <option value="0.5" label="0.5">0.5</option>
+                                <option value="1" label="1">1</option>
+                                <option value="1.5" label="1.5">1.5</option>
+                                <option value="2" label="2">2</option>
+                            </select>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p class="variable">Y=
+                            <label for="y"></label><input id="y" type="text" placeholder="Enter y:">
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p class="variable">R=
+                            <label for="r"></label><input id="r" type="text" placeholder="Enter r:">
+                        </p>
+                    </td>
+                    <td>
+                        <button id="button" type="submit">Submit</button>
+                    </td>
+                    <td>
+                        <button id="cleaning_button" type="submit">Clear</button>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    <tr>
+        <td>
+            <table class="result_table">
+                <tr>
+                    <th class="variable">X</th>
+                    <th class="variable">Y</th>
+                    <th class="variable">R</th>
+                    <th>Result</th>
+                    <th>Submit time</th>
+                    <th>Calculation time</th>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
