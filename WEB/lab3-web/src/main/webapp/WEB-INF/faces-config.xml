@@ -1,0 +1,48 @@
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.2" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <managed-bean>
+        <managed-bean-name>clock</managed-bean-name>
+        <managed-bean-class>com.example.lab3web.beans.ClockBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>coordinates</managed-bean-name>
+        <managed-bean-class>com.example.lab3web.beans.CoordinatesBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>process</managed-bean-name>
+        <managed-bean-class>com.example.lab3web.beans.ProcessBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>coordinatesBean</property-name>
+            <value>#{coordinates}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>pointsBean</property-name>
+            <value>#{points}</value>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>points</managed-bean-name>
+        <managed-bean-class>com.example.lab3web.beans.PointsBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <navigation-rule>
+        <from-view-id>/start.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>toMain</from-outcome>
+            <to-view-id>/main.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/main.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>toStart</from-outcome>
+            <to-view-id>/start.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

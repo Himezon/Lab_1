@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xml:lang="rus">
+<h:head>
+    <title>Главная</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</h:head>
+<h:body>
+    <h:form>
+        <h:commandLink value="Вернуться обратно" action="toStart"/>
+    </h:form>
+    <div class="map">
+        <canvas class="map" width="700" height="700"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" fill="none" viewBox="0 0 701 701">
+            <path stroke="#000" d="M350 1v700M0 351h700"/>
+            <path fill="#E88" fill-opacity=".71" d="M350 151h200v200H350z"/>
+            <path stroke="#000" d="m349.646 451.397 100.502-100.501"/>
+            <path fill="#E88" fill-opacity=".71"
+                  d="M350 351h100l-46 45-54 55V351Zm-100 0a100.003 100.003 0 0 0 100 100V351H250Z"/>
+            <path fill="#000"
+                  d="M350.354.646a.501.501 0 0 0-.708 0l-3.182 3.182a.5.5 0 0 0 .708.708L350 1.707l2.828 2.829a.501.501 0 0 0 .708-.708L350.354.646ZM350.5 143V1h-1v142h1Zm349.854 208.354a.502.502 0 0 0 0-.708l-3.182-3.182a.502.502 0 0 0-.708.708l2.829 2.828-2.829 2.828a.502.502 0 0 0 .708.708l3.182-3.182ZM587 351.5h113v-1H587v1Z"/>
+        </svg>
+    </div>
+    <div class="vars_table">
+        <h:form id="coordinatesForm">
+            <div class="field">
+                <h:outputLabel value="X:"/>
+                <h:inputText id="xValue" styleClass="enter-text" value="#{coordinates.x}"/>
+                <div class="field">
+                    <p:slider for="xValue" minValue="-5" maxValue="5" step="1" styleClass="slider"/>
+                </div>
+            </div>
+            <div class="field">
+                <h:outputLabel value="Y:"/>
+                <h:inputText id="yValue" styleClass="enter-text" value="#{coordinates.y}" a:placeholder="-5..5">
+                    <f:converter converterId="NumberConverter"/>
+                    <f:validator validatorId="YValidator"/>
+                </h:inputText>
+            </div>
+            <div class="field">
+                <h:outputLabel value="R:"/>
+                <h:inputText id="rValue" styleClass="enter-text" value="#{coordinates.r}" a:placeholder="1..4"
+                             onchange="loadPoints()">
+                    <f:converter converterId="NumberConverter"/>
+                    <f:validator validatorId="RValidator"/>
+                </h:inputText>
+            </div>
+            <h:message for="yValue" id="yErrors" styleClass="err_msg"/>
+            <h:message for="rValue" id="rErrors" styleClass="err_msg"/>
+            <div class="field">
+                <h:commandButton value="CLICK" action="#{process.processNewValue()}">
+                    <f:ajax execute="coordinatesForm" render="table yErrors rErrors" onevent="ajaxGetPoints"/>
+                </h:commandButton>
+            </div>
+        </h:form>
+    </div>
+    <div class="table">
+        <h:dataTable id="table" value="#{process.pointsBean.points}" var="point" styleClass="result_table page_table">
+            <h:column>
+                <f:facet name="header">Дата</f:facet>
+                #{point.date}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Координата X</f:facet>
+                #{point.x}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Координата Y</f:facet>
+                #{point.y}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Координата R</f:facet>
+                #{point.r}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Попадание</f:facet>
+                #{point.hit?"Попал":"Не попал"}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Время работы</f:facet>
+                #{point.timeScript} мс
+            </h:column>
+        </h:dataTable>
+    </div>
+    <h:form id="hiddenForm">
+        <h:inputHidden value="#{coordinates.x}" id="xHiddenValue"/>
+        <h:inputHidden value="#{coordinates.y}" id="yHiddenValue"/>
+        <h:inputHidden value="#{coordinates.r}" id="rHiddenValue"/>
+
+        <h:commandButton id="phantomButton" action="#{process.processNewValue()}" style="visibility: hidden">
+            <f:ajax execute="hiddenForm rValue" render="table" onevent="ajaxGetPoints"/>
+        </h:commandButton>
+    </h:form>
+</h:body>
+<script src="js/coords-sender.js"/>
+<script src="js/form-handler.js"/>
+<script src="js/map-handler.js"/>
+</html>

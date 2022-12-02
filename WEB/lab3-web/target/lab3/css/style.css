@@ -1,0 +1,165 @@
+canvas.map {
+    position: absolute;
+    border: outset;
+    border-color: var(--secondary-color);
+    border-radius: 5px;
+}
+svg {
+    background: white;
+}
+
+:root {
+    --primary-color: #f5f5f5;
+    --background-color: #181818;
+    --secondary-color: #242424;
+}
+
+body {
+    background-image: url("../img/background.png");
+    background-size: 40%;
+    background-repeat: repeat;
+    background-color: var(--background-color);
+    text-align: center;
+    font-family: monospace; /*наследование (шрифт)*/
+    margin: auto;
+    padding: 0;
+    color: var(--primary-color);
+}
+
+header {
+    background-color: var(--secondary-color);
+    padding: 20px;
+}
+
+#author { /*селектор идентификаторов*/
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 200%;
+    position: relative;
+    color: var(--primary-color);
+}
+
+.enter-text {
+    font-family: sans-serif; /* каскадирование */
+    font-size: 200%;
+    color: var(--primary-color);
+}
+
+canvas {
+    cursor: pointer;
+}
+
+button { /*селектор  элементов*/
+    color: var(--background-color);
+    text-align: center;
+    padding: 1% 2%;
+    margin: 2%;
+    background: var(--primary-color);
+    border: outset;
+    border-color: var(--secondary-color);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input {
+    color: var(--primary-color);
+    border-width: thick;
+    border-style: outset;
+    border-color: var(--secondary-color);
+    border-radius: 5px;
+    font-size: 80%;
+    background-color: #242424;
+}
+
+.page_table {
+    margin: auto;
+}
+
+.result_table { /* селектор классов */
+    width: 80%;
+    font-size: 100%;
+    border: solid;
+    border-color: var(--secondary-color);
+    border-radius: 5px;
+    text-align: center;
+    font-style: normal;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    border-spacing: 15px;
+    float: bottom;
+}
+
+td {
+    text-align: center;
+}
+
+.field {
+    margin: 1%;
+}
+
+.vars_table {
+    margin: auto;
+    float: none;
+    /*margin-left: 1em;
+    text-align: left;*/
+}
+
+.slider {
+    width: 25em;
+    margin: 2%;
+    /*margin-bottom: 0.5em;*/
+    /*margin-top: 0.5em;*/
+    background-color: #777777 !important;
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    /*align-content: flex-start;*/
+
+}
+.ui-slider-range {
+    background: lawngreen !important;
+    text-align: center;
+    /*align-content: flex-start;*/
+}
+
+.ui-slider-handle {
+    background: #777777 !important;
+    border: lawngreen !important;
+    text-align: center;
+    /*align-content: flex-start;*/
+}
+
+#time {
+    color: var(--primary-color);
+}
+
+div.map {
+    float:none;
+}
+
+div.table {
+    float: bottom;
+    width: 100%;
+}
+
+#xValue {
+    color: var(--background-color);
+}
+#yValue {
+    color: var(--background-color);
+}
+#rValue {
+    color: var(--background-color);
+}
+
+.err_msg {
+    background: red;
+    color: var(--background-color);
+    border: solid;
+    border-color: var(--secondary-color);
+    border-radius: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-left: 2px;
+    padding-right: 2px;
+}

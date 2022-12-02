@@ -1,0 +1,16 @@
+database\HibernateSessionFactoryUtil.class
+database\AbstractPointDAO.class
+com\example\lab3web\HitChecker.class
+com\example\lab3web\validators\RValidator.class
+com\example\lab3web\beans\ProcessBean.class
+com\example\lab3web\convertors\NumberConverter.class
+com\example\lab3web\beans\PointsBean.class
+database\DataBaseException.class
+database\PointDAO.class
+com\example\lab3web\beans\CoordinatesBean.class
+com\example\lab3web\validators\AbstractValidator.class
+com\example\lab3web\validators\YValidator.class
+com\example\lab3web\servlets\MapHandlerServlet.class
+com\example\lab3web\validators\InvalidRangeException.class
+com\example\lab3web\data\Point.class
+com\example\lab3web\beans\ClockBean.class

@@ -1,0 +1,1 @@
+$('input[name="coordinatesForm:xValue"]').attr("readonly", true);
