@@ -7,12 +7,16 @@ $('input[name="coordinatesForm:radius"]').attr("readonly", true); // lock r area
 
 loadPoints();
 
+function clearPoints() {
+    let canvas = $('canvas.map')[0];
+    let ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
 function loadPoints() {
     let canvas = $('canvas.map')[0];
     let ctx = canvas.getContext('2d');
-
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     ajaxSend("map", handleResults);
 }
 
@@ -34,9 +38,15 @@ function handleResults(points) {
     let r = $('input[name="coordinatesForm:rValue"]').val();
 
     for (let point of points) {
-        drawCircle(ctx, point.x * coefficientX / r + canvas.width / 2,
-            -point.y * coefficientY / r + canvas.height / 2,
-            circleSize, point.hit ? "green" : "red");
+        if (r >= point.r && point.hit===true) {
+            drawCircle(ctx, point.x * coefficientX / r + canvas.width / 2,
+                -point.y * coefficientY / r + canvas.height / 2,
+                circleSize, point.hit ? "green" : "red");
+        } else if (r <= point.r && point.hit!==true) {
+            drawCircle(ctx, point.x * coefficientX / r + canvas.width / 2,
+                -point.y * coefficientY / r + canvas.height / 2,
+                circleSize, point.hit ? "green" : "red");
+        }
     }
 }
 
